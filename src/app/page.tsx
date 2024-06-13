@@ -7,7 +7,7 @@ export default function Home() {
   const [computerScore, setComputerScore] = useState(0);
   const array = ["Rock", "Paper", "Scissor"];
 
-  const playGame = (playerChoice) => {
+  const playGame = (playerChoice:any) => {
     const randomIndex = Math.floor(Math.random() * array.length);
     const computerChoice = array[randomIndex];
 
