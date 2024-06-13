@@ -1,13 +1,14 @@
 "use client";
+import React, { useState } from "react";
+import Image from "next/image";
 import styles from "./page.module.css";
-import { useState } from "react";
 
-export default function Home() {
+const Page: React.FC = () => {
   const [playerScore, setPlayerScore] = useState(0);
   const [computerScore, setComputerScore] = useState(0);
   const array = ["Rock", "Paper", "Scissor"];
 
-  const playGame = (playerChoice:any) => {
+  const playGame = (playerChoice: string) => {
     const randomIndex = Math.floor(Math.random() * array.length);
     const computerChoice = array[randomIndex];
 
@@ -38,17 +39,19 @@ export default function Home() {
       <div className={styles.buttonGroup}>
         <button className={styles.button} onClick={() => playGame("Rock")}>
           Rock
-          <img src="/rock.jpg" alt="rock" height="50" width="50" />
+          <Image src="/rock.jpg" alt="rock" height={50} width={50} />
         </button>
         <button className={styles.button} onClick={() => playGame("Paper")}>
           Paper
-          <img src="/paper.jpg" alt="paper" height="50" width="50" />
+          <Image src="/paper.jpg" alt="paper" height={50} width={50} />
         </button>
         <button className={styles.button} onClick={() => playGame("Scissor")}>
           Scissor
-          <img src="/scissor.jpg" alt="scissor" height="50" width="50" />
+          <Image src="/scissor.jpg" alt="scissor" height={50} width={50} />
         </button>
       </div>
     </main>
   );
-}
+};
+
+export default Page;
